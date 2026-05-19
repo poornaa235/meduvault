@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Options</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Insurance Options</h2>
+        <form method="POST">
+            <button type="submit" name="action" value="view">View Insurance</button>
+            <button type="submit" name="action" value="update">Update Insurance</button>
+        </form>
+
+        {% if insurance %}
+            <h3>Your Insurance Details</h3>
+            <table>
+                <tr><th>Provider</th><th>Policy Number</th><th>Coverage</th></tr>
+                {% for row in insurance %}
+                <tr>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>

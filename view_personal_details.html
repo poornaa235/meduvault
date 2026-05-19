@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Personal Details</h2>
+        {% if personal %}
+            <table>
+                <tr><th>Name</th><td>{{ personal[1] }}</td></tr>
+                <tr><th>Age</th><td>{{ personal[2] }}</td></tr>
+                <tr><th>Gender</th><td>{{ personal[3] }}</td></tr>
+                <tr><th>Blood Group</th><td>{{ personal[4] }}</td></tr>
+            </table>
+        {% else %}
+            <p>No personal details found for this Aadhar number.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Your Personal Dashboard</h2>
+
+        <h3>Personal Details</h3>
+        {% if personal %}
+        <table>
+            <tr><th>Name</th><th>Age</th><th>Gender</th><th>Blood Group</th></tr>
+            <tr>
+                <td>{{ personal[1] }}</td>
+                <td>{{ personal[2] }}</td>
+                <td>{{ personal[3] }}</td>
+                <td>{{ personal[4] }}</td>
+            </tr>
+        </table>
+        {% else %}
+        <p>No personal details found. Please enter your information below:</p>
+        <form method="POST" action="/submit_personal_details">
+            <label>Name:</label><br>
+            <input type="text" name="name" required><br><br>
+
+            <label>Age:</label><br>
+            <input type="number" name="age" required><br><br>
+
+            <label>Gender:</label><br>
+            <select name="gender" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select><br><br>
+
+            <label>Blood Group:</label><br>
+            <select name="blood_group" required>
+                <option value="">Select</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        {% endif %}
+
+        <!-- Medical History -->
+        <h3>Medical History</h3>
+        {% if medical %}
+        <table>
+            <tr><th>Diagnosis</th><th>Treatment</th><th>Date</th></tr>
+            {% for row in medical %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No medical history found.</p>
+        {% endif %}
+
+        <!-- Allergy Info -->
+        <h3>Allergy Information</h3>
+        {% if allergies %}
+        <table>
+            <tr><th>Allergen</th><th>Reaction</th></tr>
+            {% for row in allergies %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No allergy information found.</p>
+        {% endif %}
+
+        <br>
+        <form action="/insurance_options" method="GET">
+            <button type="submit">View or Update Insurance</button>
+        </form>
+
+        <br>
+        <form action="/logout" method="GET">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Insurance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Update Insurance Info</h2>
+        <form method="POST" action="/submit_insurance_update">
+            <input type="text" name="provider" placeholder="Provider" required><br><br>
+            <input type="text" name="policy_number" placeholder="Policy Number" required><br><br>
+            <input type="text" name="coverage" placeholder="Coverage" required><br><br>
+            <button type="submit">Update Insurance</button>
+        </form>
+    </div>
+</body>
+</html>

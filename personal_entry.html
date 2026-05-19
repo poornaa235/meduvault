@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Access</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your Aadhar Number</h2>
+        <form method="POST">
+            <input type="text" name="aadhar" placeholder="Aadhar Number" required><br><br>
+            <button type="submit">Access Dashboard</button>
+        </form>
+    </div>
+</body>
+</html>

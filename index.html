@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MeduVault</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to <span class="highlight">MeduVault</span></h1>
+        <p>Your secure medical data vault</p>
+        <h2>Select Role</h2>
+        <form action="/select_role" method="POST">
+            <button type="submit" name="role" value="hospital">Hospital Side</button>
+            <button type="submit" name="role" value="personal">My Side</button>
+        </form>
+    </div>
+</body>
+</html>

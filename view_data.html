@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Patient Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Patient Data Lookup</h1>
+
+        {% if medical %}
+            <h2>Medical History</h2>
+            <table>
+                <tr>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                    <th>Date</th>
+                </tr>
+                {% for row in medical %}
+                <tr>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+        {% if insurance %}
+            <h2>Insurance Details</h2>
+            <table>
+                <tr>
+                    <th>Provider</th>
+                    <th>Policy Number</th>
+                    <th>Coverage</th>
+                </tr>
+                {% for row in insurance %}
+                <tr>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+        {% if allergies %}
+            <h2>Allergy Information</h2>
+            <table>
+                <tr>
+                    <th>Allergen</th>
+                    <th>Reaction</th>
+                </tr>
+                {% for row in allergies %}
+                <tr>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+        <br>
+        <a href="/hospital_dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html>
