@@ -1,10 +1,6 @@
--- MeduVault Database Setup
--- Run this file with: mysql -u root -p < meduvault.sql
-
 CREATE DATABASE IF NOT EXISTS meduvault;
 USE meduvault;
 
--- Users table (hospital login)
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
@@ -12,7 +8,6 @@ CREATE TABLE IF NOT EXISTS users (
     role VARCHAR(50) NOT NULL
 );
 
--- Personal details table
 CREATE TABLE IF NOT EXISTS personal_details (
     id INT AUTO_INCREMENT PRIMARY KEY,
     aadhar_number VARCHAR(20) NOT NULL,
@@ -22,7 +17,6 @@ CREATE TABLE IF NOT EXISTS personal_details (
     blood_group VARCHAR(10)
 );
 
--- Medical history table
 CREATE TABLE IF NOT EXISTS medical_history (
     id INT AUTO_INCREMENT PRIMARY KEY,
     aadhar_number VARCHAR(20) NOT NULL,
@@ -31,7 +25,6 @@ CREATE TABLE IF NOT EXISTS medical_history (
     date DATE
 );
 
--- Allergies table
 CREATE TABLE IF NOT EXISTS allergies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     aadhar_number VARCHAR(20) NOT NULL,
@@ -39,7 +32,6 @@ CREATE TABLE IF NOT EXISTS allergies (
     reaction VARCHAR(100)
 );
 
--- Insurance table
 CREATE TABLE IF NOT EXISTS insurance (
     id INT AUTO_INCREMENT PRIMARY KEY,
     aadhar_number VARCHAR(20) NOT NULL,
@@ -48,5 +40,4 @@ CREATE TABLE IF NOT EXISTS insurance (
     coverage VARCHAR(100)
 );
 
--- Sample hospital user (username: admin, password: admin123)
-INSERT INTO users (username, password, role) VALUES ('admin', 'admin123', 'hospital');
+INSERT INTO users (username, password, role) VALUES ('harsha', '123', 'hospital');
